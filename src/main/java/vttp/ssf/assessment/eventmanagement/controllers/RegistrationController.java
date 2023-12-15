@@ -49,7 +49,7 @@ public class RegistrationController {
     }
 
     // TODO: Task 7
-    @PostMapping(path = "registration/register")
+    @PostMapping(path = "/registration")
     public String processRegistration(@Valid @ModelAttribute("newregistration") EventRegistration registrationForm, BindingResult result, Model model) {
 
         // If failure, stays at the same page.

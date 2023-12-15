@@ -18,8 +18,7 @@
             <br>
             <span data-th-text="${event.eventDate}"></span>
 
-            <!-- To create a postmapping for th:action -->
-            <form method="POST" th:action="@{registration/register}" th:object="${newregistration}">
+            <form method="POST" th:action="@{/registration}" th:object="${newregistration}">
                 <div class="mb-3">
                   <label for="fullName" class="form-label">Full Name</label>
                   <input type="text" class="form-control" name="fullName" th:field="*{fullName}">
