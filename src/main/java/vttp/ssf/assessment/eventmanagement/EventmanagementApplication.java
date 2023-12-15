@@ -36,12 +36,22 @@ public class EventmanagementApplication implements CommandLineRunner {
 		
 		// TODO: Task 2 (Done)
 		// Need to loop through and save each event individually.
-		for (Event event : listOfEvents) {
-			System.out.println("Saving a new event: " + event);
-			redisRepository.saveRecord(event);
-		}
+		// for (Event event : listOfEvents) {
+		// 	System.out.println("Saving a new event: " + event);
+		// 	redisRepository.saveRecord(event);
+		// }
 
+		listOfEvents.stream().forEach(event -> {redisRepository.saveRecord(event);
+		});
+
+		// TODO: Task 3 (Done)
+		Long numberOfEvents = redisRepository.getNumberOfEvents();
+		System.out.println("Number of events available:" + numberOfEvents);
 		
+		// TODO: Task 4 (Done)
+		Event testEventIndex = redisRepository.getEvent(0);
+		System.out.println("The event at index 0 is: " + testEventIndex);
+
 	}
 	
 
