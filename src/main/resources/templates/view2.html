@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <h1>Success</h1>
+        <div>You have successfully registered for the event: </div>
+
+        <div data-th-text="${savedRegistration.eventName}"></div>
+        <div data-th-text="${savedRegistration.eventDate}"></div>
+
+        <a th:href="@{/events/listing}">Back to Events Listing</a>
+
+    </body>
+</html>
