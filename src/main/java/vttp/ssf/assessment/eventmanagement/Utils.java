@@ -27,11 +27,30 @@ public class Utils {
         Integer eventId = jsonObject.getInt("eventId");
         String eventName = jsonObject.getString("eventName");
         Integer eventSize = jsonObject.getInt("eventSize");
-        Integer eventDate = jsonObject.getInt("eventDate");
+        Long eventDate = Long.valueOf(jsonObject.getInt("eventDate"));
         Integer participants = jsonObject.getInt("participants");
 
         Event event = new Event(eventId, eventName, eventSize, eventDate, participants);
         return event;
+    }
+
+    // Event Obj -> String
+    public static String serialiseEvent(Event event) {
+        String eventId = event.getEventId().toString();
+        String eventName = event.getEventName().toString();
+        String eventSize = event.getEventSize().toString();
+        String  eventDate = event.getEventDate().toString();
+        String  participants = event.getParticipants().toString();
+
+        // Building your string of an event to be inserted to redis.
+        StringBuilder sb = new StringBuilder()
+                .append("eventId:"+eventId+",")
+                .append("eventName:"+eventName+",")
+                .append("eventSize:"+eventSize+",")
+                .append("eventDate:"+eventDate+",")
+                .append("participants:"+participants);
+        String body = sb.toString();
+        return body;
     }
 
 
